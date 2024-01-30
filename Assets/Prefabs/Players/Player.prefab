@@ -725,6 +725,7 @@ MonoBehaviour:
     spriteType: 1
     enemyHp: 15
     enemySpeed: 1.5
+  levelTime: 0
 --- !u!1 &3126762355357562808
 GameObject:
   m_ObjectHideFlags: 0
@@ -831,7 +832,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 20, y: 20}
+  m_Size: {x: 40, y: 40}
   m_EdgeRadius: 0
 --- !u!1 &3614160451364770959
 GameObject:
