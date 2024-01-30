@@ -46,12 +46,12 @@ public class Reposion : MonoBehaviour
                 if (diffX > diffY)   // 두 오브젝트의 거리 차이에서 X축이 y축보다 크면 양 옆으로 이동
                 {
                     // 자신을 Translate()에서 지정한 값 만큼 현재 위치에서 이동
-                    transform.Translate(Vector3.right * dirX * 40);      
+                    transform.Translate(Vector3.right * dirX * 80);      
                 }
                 else if (diffX < diffY)   // 두 오브젝트의 거리 차이에서 X축이 y축보다 작으면 위아래도 이동
                 {
                     // 자신을 Translate()에서 지정한 값 만큼 현재 위치에서 이동
-                    transform.Translate(Vector3.up * dirY * 40);
+                    transform.Translate(Vector3.up * dirY * 80);
                 }
 
                 break;

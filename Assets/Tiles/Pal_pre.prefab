@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8670473681593122764}
   - component: {fileID: 6658858827132377287}
   m_Layer: 0
-  m_Name: Pal
+  m_Name: Pal_pre
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -100,7 +100,7 @@ Tilemap:
   m_AnimatedTiles: {}
   m_TileAssetArray:
   - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: e394d789a86d0a34fa29f6082e567642, type: 2}
+    m_Data: {fileID: 11400000, guid: 6b02a6ff8fcb7704aa8cac384d539fb5, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 1
     m_Data: {fileID: -2031541144, guid: 9ee30eb7d2f1f404790266ee96a67099, type: 3}
@@ -199,7 +199,7 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
---- !u!114 &657263692178261657
+--- !u!114 &4276727968573413651
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

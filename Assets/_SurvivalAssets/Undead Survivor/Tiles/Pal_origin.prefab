@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8670473681593122764}
   - component: {fileID: 6658858827132377287}
   m_Layer: 0
-  m_Name: Pal
+  m_Name: Pal_origin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
