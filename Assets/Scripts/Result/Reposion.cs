@@ -20,10 +20,11 @@ public class Reposion : MonoBehaviour
         }
         Vector3 playerPos = Vector3.zero;
         // 거리를 구하기 위해 플레이어 위치와 타일맵 위치를 저장
-        if (GameManager.Instance.Player != null)
+        if (GameManager.Instance != null && GameManager.Instance.Player != null)
         {
             playerPos = GameManager.Instance.Player.transform.position; // 플레이어의 위치를 playerPos 에 저장
         }
+        //Vector3 playerPos = GameManager.Instance.Player.transform.position; // 플레이어의 위치를 playerPos 에 저장
 
         Vector3 myPos =  transform.position;    // 타일맵의 위치를 저장
 
@@ -59,7 +60,7 @@ public class Reposion : MonoBehaviour
                 if(coll.enabled) // 콜라이더가 활성화가 되고있으면 실행
                 {
                     // 새로운 벡터 구하기
-                    Vector3 dist = playerPos - myPos;   // 플레이어의 위치 - 적의 위치
+                    Vector3 dist = playerPos - transform.position;   // 플레이어의 위치 - 적의 위치
                     // 플레이어와 너무 멀리 떨러져있으면 적은 플레이어 위치로 이동
                     // X2 를 해서 플레이어의 앞쪽으로 이동
                     // 랜덤 값으로 x y -3 ~ +3 랜덤 좌료만큼 더해주기 
