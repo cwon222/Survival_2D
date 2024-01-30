@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using System.Collections;
 using System.Collections.Generic;
 using TreeEditor;
@@ -29,3 +30,4 @@ public class Test_Enemy : MonoBehaviour
         transform.Translate(Time.deltaTime * enemySpeed * direct);
     }
 }
+#endif

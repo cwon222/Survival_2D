@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -82,3 +83,4 @@ public class Test_Player : MonoBehaviour
         transform.Translate(Time.deltaTime * moveSpeed * inputDir); // 1초당 moveSpeed만큼의 속도로 inputDir  방향으로 움직여라
     }
 }
+#endif

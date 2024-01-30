@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -35,3 +36,4 @@ public class Test_Spawner : MonoBehaviour
         GameManager.Instance.pool.Get(1);
     }
 }
+#endif
