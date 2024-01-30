@@ -20,7 +20,7 @@ public class LevelUp : MonoBehaviour
     {
         Next(); // 랜덤 아이템 오브젝트 활성화 함수 호출
         rect.localScale = Vector3.one;  // 크기 모두 1(레벨업 UI 원래크기로 보이기)
-        GameManager.instance.Stop();    // 시간 정지 함수 호출
+        GameManager.Instance.Stop();    // 시간 정지 함수 호출
     }
     /// <summary>
     /// UI 안보이게 하는 함수
@@ -28,7 +28,7 @@ public class LevelUp : MonoBehaviour
     public void Hide()
     {
         rect.localScale = Vector3.zero; // 크기 모두 0(레벨업 UI 크키 0 으로 해서 안보이기)
-        GameManager.instance.Resume();  // 시간 재개
+        GameManager.Instance.Resume();  // 시간 재개
     }
     /// <summary>
     /// 아이템 선택 함수
@@ -53,7 +53,7 @@ public class LevelUp : MonoBehaviour
         items[1].gameObject.SetActive(true);    // 원거리 무기 활성화
 
         rect.localScale = Vector3.one;  // 크기 모두 1(레벨업 UI 원래크기로 보이기)
-        GameManager.instance.Stop();    // 시간 정지 함수 호출
+        GameManager.Instance.Stop();    // 시간 정지 함수 호출
     }
     /// <summary>
     /// 랜덤 활성화 함수

@@ -11,7 +11,7 @@ public class Gear : MonoBehaviour
     {
         // 기본셋
         name = "Gear " + data.itemId;
-        transform.parent = GameManager.instance.player.transform;
+        transform.parent = GameManager.Instance.Player.transform;
         transform.localPosition = Vector3.zero;
 
         // 프로퍼티 셋
@@ -63,6 +63,6 @@ public class Gear : MonoBehaviour
     void SpeedUp()
     {
         float speed = 5;
-        GameManager.instance.player.moveSpeed = speed + (speed * rate);
+        GameManager.Instance.Player.moveSpeed = speed + (speed * rate);
     }
 }

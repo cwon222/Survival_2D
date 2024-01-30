@@ -526,50 +526,6 @@ PrefabInstance:
       propertyPath: uiGameOver
       value: 
       objectReference: {fileID: 1200813978}
-    - target: {fileID: 3710379947992982988, guid: 754f00a67a0465c4c9498dadff7e97fc, type: 3}
-      propertyPath: maxGameTime
-      value: 300
-      objectReference: {fileID: 0}
-    - target: {fileID: 3710379947992982988, guid: 754f00a67a0465c4c9498dadff7e97fc, type: 3}
-      propertyPath: nextExp.Array.data[0]
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3710379947992982988, guid: 754f00a67a0465c4c9498dadff7e97fc, type: 3}
-      propertyPath: nextExp.Array.data[1]
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3710379947992982988, guid: 754f00a67a0465c4c9498dadff7e97fc, type: 3}
-      propertyPath: nextExp.Array.data[2]
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 3710379947992982988, guid: 754f00a67a0465c4c9498dadff7e97fc, type: 3}
-      propertyPath: nextExp.Array.data[3]
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 3710379947992982988, guid: 754f00a67a0465c4c9498dadff7e97fc, type: 3}
-      propertyPath: nextExp.Array.data[4]
-      value: 150
-      objectReference: {fileID: 0}
-    - target: {fileID: 3710379947992982988, guid: 754f00a67a0465c4c9498dadff7e97fc, type: 3}
-      propertyPath: nextExp.Array.data[5]
-      value: 210
-      objectReference: {fileID: 0}
-    - target: {fileID: 3710379947992982988, guid: 754f00a67a0465c4c9498dadff7e97fc, type: 3}
-      propertyPath: nextExp.Array.data[6]
-      value: 280
-      objectReference: {fileID: 0}
-    - target: {fileID: 3710379947992982988, guid: 754f00a67a0465c4c9498dadff7e97fc, type: 3}
-      propertyPath: nextExp.Array.data[7]
-      value: 360
-      objectReference: {fileID: 0}
-    - target: {fileID: 3710379947992982988, guid: 754f00a67a0465c4c9498dadff7e97fc, type: 3}
-      propertyPath: nextExp.Array.data[8]
-      value: 450
-      objectReference: {fileID: 0}
-    - target: {fileID: 3710379947992982988, guid: 754f00a67a0465c4c9498dadff7e97fc, type: 3}
-      propertyPath: nextExp.Array.data[9]
-      value: 600
-      objectReference: {fileID: 0}
     - target: {fileID: 5419162595736060132, guid: 754f00a67a0465c4c9498dadff7e97fc, type: 3}
       propertyPath: m_Name
       value: GameManager

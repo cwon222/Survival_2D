@@ -31,18 +31,18 @@ public class Weapon : MonoBehaviour
     /// <summary>
     /// 플레이어 스크립트 변수
     /// </summary>
-    Player player;
+    //Player player;
 
 
 
-    private void Awake()
-    {
-        player = GameManager.instance.player;
-    }
+    //private void Awake()
+    //{
+    //    player = GameManager.Instance.Player;
+    //}
 
     private void Update()
     {
-        if (!GameManager.instance.isLive)   // 시간이 정지 되어있으면 탈출
+        if (!GameManager.Instance.isLive)   // 시간이 정지 되어있으면 탈출
             return;
 
         switch (id)
@@ -76,7 +76,7 @@ public class Weapon : MonoBehaviour
         {
             WeaponPosition();   // 무기 id가 0 이면 무기 위치 설정 실행
         }
-        player.BroadcastMessage("ApplyGear", SendMessageOptions.DontRequireReceiver);
+        GameManager.Instance.Player.BroadcastMessage("ApplyGear", SendMessageOptions.DontRequireReceiver);
     }
 
     /// <summary>
@@ -86,7 +86,7 @@ public class Weapon : MonoBehaviour
     {
         // 기본 셋팅
         name = "Weapon " + data.itemId;
-        transform.parent = player.transform;
+        transform.parent = GameManager.Instance.Player.transform;
         transform.localPosition = Vector3.zero;
 
         // 프로퍼티 세팅
@@ -94,9 +94,9 @@ public class Weapon : MonoBehaviour
         damage = data.baseDamage;
         count = data.baseCount;
 
-        for (int i = 0; i < GameManager.instance.pool.prefabs.Length; i++)
+        for (int i = 0; i < GameManager.Instance.pool.prefabs.Length; i++)
         {
-            if(data.projectile == GameManager.instance.pool.prefabs[i])
+            if(data.projectile == GameManager.Instance.pool.prefabs[i])
             {
                 prefabId = i;
                 break;
@@ -115,11 +115,11 @@ public class Weapon : MonoBehaviour
         }
 
         // 손 셋팅
-        Hand hand = player.hands[(int)data.itemType];   // 손 오브젝트 가져오기(int로 형변환)
+        Hand hand = GameManager.Instance.Player.hands[(int)data.itemType];   // 손 오브젝트 가져오기(int로 형변환)
         hand.spriter.sprite = data.hand;     // 가져온 손 스트라이트 적용
         hand.gameObject.SetActive(true);    // 손 오브젝트 활성화
 
-        player.BroadcastMessage("ApplyGear", SendMessageOptions.DontRequireReceiver);
+        GameManager.Instance.Player.BroadcastMessage("ApplyGear", SendMessageOptions.DontRequireReceiver);
     }
 
     /// <summary>
@@ -136,7 +136,7 @@ public class Weapon : MonoBehaviour
             }
             else
             {
-                bullet = GameManager.instance.pool.Get(prefabId).transform;   // 풀에서 오브젝트 하나를 가져와서 bullet에 넣기 위치 저장
+                bullet = GameManager.Instance.pool.Get(prefabId).transform;   // 풀에서 오브젝트 하나를 가져와서 bullet에 넣기 위치 저장
                 bullet.parent = transform;  // 부모를 자기 자신으로 설정
             }
             
@@ -154,14 +154,14 @@ public class Weapon : MonoBehaviour
     /// </summary>
     void Fire()
     {
-        if(!player.scanner.nearestTarget)
+        if(!GameManager.Instance.Player.scanner.nearestTarget)
         {
             return;
         }
-        Vector3 targetPos = player.scanner.nearestTarget.position;  // 적을 향해서 바라보는 방향
+        Vector3 targetPos = GameManager.Instance.Player.scanner.nearestTarget.position;  // 적을 향해서 바라보는 방향
         Vector3 dir = targetPos - transform.position;   // 크기가 포함된 방향 : 목표 위치 - 플레이어의 위치
         dir = dir.normalized;    // 정규화
-        Transform bullet = GameManager.instance.pool.Get(prefabId).transform;   // 풀에서 오브젝트 하나를 가져와서 bullet에 넣기 위치 저장
+        Transform bullet = GameManager.Instance.pool.Get(prefabId).transform;   // 풀에서 오브젝트 하나를 가져와서 bullet에 넣기 위치 저장
 
         bullet.position = transform.position;   // 총알의 위치는 플레이어의 위치로 저장
         bullet.rotation = Quaternion.FromToRotation(Vector3.up, dir);   // 총알 방향 조정

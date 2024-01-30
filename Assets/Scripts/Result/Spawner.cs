@@ -14,16 +14,24 @@ public class Spawner : MonoBehaviour
     private void Awake()
     {
         spawnPoint = GetComponentsInChildren<Transform>();  // transform 배열 안의 값 초기화
-        levelTime = GameManager.instance.maxGameTime / spawnData.Length;    // 최대 시간에 몬스터 데이터 크기로 나누어 자동으로 구간 시간 계산
+        if (GameManager.Instance != null)
+        {
+            levelTime = GameManager.Instance.maxGameTime / spawnData.Length;    // 최대 시간에 몬스터 데이터 크기로 나누어 자동으로 구간 시간 계산
+        }
+        else
+        {
+            Debug.LogError("GameManager가 초기화되지 않았습니다!");
+        }
+        
     }
 
     private void Update()
     {
-        if (!GameManager.instance.isLive)   // 시간이 정지 되어있으면 탈출
+        if (!GameManager.Instance.isLive)   // 시간이 정지 되어있으면 탈출
             return;
 
         timer += Time.deltaTime;    // 시간 더하기
-        level = Mathf.Min(Mathf.FloorToInt(GameManager.instance.gameTime / levelTime), spawnData.Length - 1) ;    // 레벨을 시간에 따라 float 형을 int형으로 바꾸어 계산
+        level = Mathf.Min(Mathf.FloorToInt(GameManager.Instance.gameTime / levelTime), spawnData.Length - 1) ;    // 레벨을 시간에 따라 float 형을 int형으로 바꾸어 계산
 
         if (timer > spawnData[level].spawnTime)
         {
@@ -34,7 +42,7 @@ public class Spawner : MonoBehaviour
 
     void Spawn()    // 스폰 생성 함수
     {
-        GameObject enemy = GameManager.instance.pool.Get(0);    // enemy 오브젝트 생성(레벨에 따라)
+        GameObject enemy = GameManager.Instance.pool.Get(0);    // enemy 오브젝트 생성(레벨에 따라)
         enemy.transform.position = spawnPoint[Random.Range(1, spawnPoint.Length)].position; // enemy 오브젝트 위치 (Point중 한곳에서 생성)
         enemy.GetComponent<Enemy>().Init(spawnData[level]);
     }

@@ -90,7 +90,7 @@ public class Item : MonoBehaviour
                 break;
 
             case ItemData.ItemType.Heal:
-                GameManager.instance.health = GameManager.instance.maxHealth;
+                GameManager.Instance.health = GameManager.Instance.maxHealth;
                 break;
 
         }

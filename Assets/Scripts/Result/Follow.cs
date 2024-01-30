@@ -14,6 +14,6 @@ public class Follow : MonoBehaviour
     private void FixedUpdate()
     {
         // WorldToScreenPoint 월드 상의 오브젝트 위치를 스크린 좌표로 변환
-        rect.position = Camera.main.WorldToScreenPoint(GameManager.instance.player.transform.position);
+        rect.position = Camera.main.WorldToScreenPoint(GameManager.Instance.Player.transform.position);
     }
 }

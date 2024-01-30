@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour
+public class GameManager : Singleton<GameManager>
 {
     /// <summary>
     /// 정적으로 클래스하나를 메모리에 올린다
     /// </summary>
-    public static GameManager instance;
+    //public static GameManager instance;
+
     [Header("게임 컨트롤 데이터")]
     /// <summary>
     /// 시간 정지 여부를 알려주는 변수 선언
@@ -59,7 +60,19 @@ public class GameManager : MonoBehaviour
     /// <summary>
     /// 플레이어 오브젝트
     /// </summary>
-    public Player player;
+    Player player;
+
+    public Player Player
+    {
+        get
+        {
+            if (player == null)      // 초기화 전에 Player에 접근했을 경우냐
+            {
+                OnInitialize();
+            }
+            return player;
+        }
+    }
     /// <summary>
     /// 레벨업 변수 선언
     /// </summary>
@@ -72,8 +85,12 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        instance = this;    // 초기화
         Stop();
+    }
+    protected override void OnInitialize()
+    {
+        //base.OnInitialize();
+        player = FindAnyObjectByType<Player>();
     }
     /// <summary>
     /// Start 버튼에 연결하여 시작 버튼을 누르면 실행할 함수

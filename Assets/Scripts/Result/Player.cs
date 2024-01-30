@@ -82,7 +82,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        if (!GameManager.instance.isLive)   // 시간이 정지 되어있으면 탈출
+        if (!GameManager.Instance.isLive)   // 시간이 정지 되어있으면 탈출
             return;
 
         anim.SetFloat("Speed", inputDir.magnitude);  // inputDir.magnitude  : 벡터의 순수한 크기 값만 가져온다. 애니메이션 Speed의 벡터 크기 값만 가져와 anim 변수에 저장한다.
@@ -95,7 +95,7 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!GameManager.instance.isLive)   // 시간이 정지 되어있으면 탈출
+        if (!GameManager.Instance.isLive)   // 시간이 정지 되어있으면 탈출
             return;
 
         //Time.deltaTime : 프레임간의 시간 간격(가변적, 컴퓨터마다 상황에 따라 다르다)
@@ -109,13 +109,13 @@ public class Player : MonoBehaviour
     /// <param name="collision"></param>
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if(!GameManager.instance.isLive)    // 플레이어가 죽어있으면 리턴
+        if(!GameManager.Instance.isLive)    // 플레이어가 죽어있으면 리턴
         {
             return;
         }
-        GameManager.instance.health -= Time.deltaTime * 10.0f;    // 플레이어의 체력 감소
+        GameManager.Instance.health -= Time.deltaTime * 10.0f;    // 플레이어의 체력 감소
 
-        if(GameManager.instance.health < 0) // 플레이어의 체력이 0보다 작으면
+        if(GameManager.Instance.health < 0) // 플레이어의 체력이 0보다 작으면
         {
             for(int i = 2; i < transform.childCount; i++)   // 자식 속성의 갯수 만큼 반복 (Shadow와 Area는 있어야 하기 떄문에 2부터)
             {
@@ -123,7 +123,7 @@ public class Player : MonoBehaviour
             }
 
             anim.SetTrigger("Dead");    // 죽는 애니메이터 실행
-            GameManager.instance.GameOver();    // 죽으면 게임 오버 실행
+            GameManager.Instance.GameOver();    // 죽으면 게임 오버 실행
         }
     }
 }

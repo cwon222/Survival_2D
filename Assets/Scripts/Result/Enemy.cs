@@ -74,7 +74,7 @@ public class Enemy : MonoBehaviour
     /// </summary>
     private void FixedUpdate()
     {
-        if (!GameManager.instance.isLive)   // 시간이 정지 되어있으면 탈출
+        if (!GameManager.Instance.isLive)   // 시간이 정지 되어있으면 탈출
             return;
 
         // 적이 살아있는 상태에서 Hit 상태일때 애니메이션을 잠시 멈추기
@@ -92,7 +92,7 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        if (!GameManager.instance.isLive)   // 시간이 정지 되어있으면 탈출
+        if (!GameManager.Instance.isLive)   // 시간이 정지 되어있으면 탈출
             return;
 
         // 적이 살아있지 않으면 아래 코드를 실행하지 않고 빠져 나온다
@@ -106,7 +106,7 @@ public class Enemy : MonoBehaviour
     /// </summary>
     private void OnEnable() 
     {
-        target = GameManager.instance.player.GetComponent<Rigidbody2D>();   // 플레이어 컴포넌트 가져오기
+        target = GameManager.Instance.Player.GetComponent<Rigidbody2D>();   // 플레이어 컴포넌트 가져오기
         isLive = true;  // 생존 여부 변수 초기화
         coll.enabled = true;   // 콜라이더 비활성화
         rigid.simulated = true;    // 리지드바디 비활성화
@@ -147,8 +147,8 @@ public class Enemy : MonoBehaviour
             rigid.simulated = false;    // 리지드바디 비활성화
             sprite.sortingOrder = 1;    // sortingOrder 1로 바꾸기
             anim.SetBool("Dead", true); // Dead 트리커 ture 전환
-            GameManager.instance.kill++;    // 킬수 증가
-            GameManager.instance.GetExp();  // 경험치 증가
+            GameManager.Instance.kill++;    // 킬수 증가
+            GameManager.Instance.GetExp();  // 경험치 증가
         }
           
     }
@@ -159,7 +159,7 @@ public class Enemy : MonoBehaviour
     IEnumerator KnockBack()
     {
         yield return wait;  // 다음 하나의 물리 프레임을 딜레이
-        Vector3 playerPos = GameManager.instance.player.transform.position; // 플레이어의 위ㅏ치
+        Vector3 playerPos = GameManager.Instance.Player.transform.position; // 플레이어의 위ㅏ치
         Vector3 dirVec = transform.position - playerPos;    // 플레이어와 자신의 위치 뺴기l(방향 지정)
         rigid.AddForce(dirVec.normalized * 3, ForceMode2D.Impulse); // 힘 추가(밀려나는 것)
     }

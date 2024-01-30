@@ -26,12 +26,12 @@ public class Test_Spawner : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.Space)) // 胶其捞胶官 穿福搁 积己
         {
-            GameManager.instance.pool.Get(1);   // 利[1] 积己
+            GameManager.Instance.pool.Get(1);   // 利[1] 积己
         }
     }
 
     void Spawn1()    // 胶迄 积己 窃荐
     {
-        GameManager.instance.pool.Get(1);
+        GameManager.Instance.pool.Get(1);
     }
 }

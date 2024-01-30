@@ -18,15 +18,18 @@ public class Reposion : MonoBehaviour
         {
             return;     // 반환  return : 코드를 실행하지 않고 함수 탈출
         }
-
+        Vector3 playerPos = Vector3.zero;
         // 거리를 구하기 위해 플레이어 위치와 타일맵 위치를 저장
-        Vector3 playerPos = GameManager.instance.player.transform.position; // 플레이어의 위치를 playerPos 에 저장
+        if (GameManager.Instance.Player != null)
+        {
+            playerPos = GameManager.Instance.Player.transform.position; // 플레이어의 위치를 playerPos 에 저장
+        }
 
         Vector3 myPos =  transform.position;    // 타일맵의 위치를 저장
 
-        //Vector3 playerDir = GameManager.instance.player.inputDir;   // 플레이어의 이동방향을 저장하기 위한 변수 // Player 스크립트에서 inputDir을 public쓰지않고 하는법??
+        //Vector3 playerDir = GameManager.Instance.Player.inputDir;   // 플레이어의 이동방향을 저장하기 위한 변수 // Player 스크립트에서 inputDir을 public쓰지않고 하는법??
 
-        switch(transform.tag)   // 현재 자신의 태그가 무엇일때 실행
+        switch (transform.tag)   // 현재 자신의 태그가 무엇일때 실행
         {
             case "Ground":  // 현재 내 태그가 Ground이면 실행
                 float diffX = playerPos.x - myPos.x; // 플레이어 위치 - 타일맵 위치 계산으로 거리 구하기 
